@@ -8,6 +8,7 @@ import jakarta.persistence.Id;
 @Entity
 public class Publisher {
 
+    // new branch created - 5-assn-add-publisher
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
