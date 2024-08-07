@@ -52,9 +52,8 @@ public class BootstrapData implements CommandLineRunner {
 
         ericSaved.getBooks().add(ddd);
         rodSaved.getBooks().add(noEJB);
-
-        authorRepository.save(ericSaved);
-        authorRepository.save(rodSaved);
+        dddSaved.getAuthors().add(ericSaved);
+        noEjbSaved.getAuthors().add(rodSaved);
 
         Publisher harperCollins = new Publisher();
         harperCollins.setPublisherName("Harper Collins");
@@ -68,6 +67,8 @@ public class BootstrapData implements CommandLineRunner {
         dddSaved.setPublisher(savedPublisher);
         noEjbSaved.setPublisher(savedPublisher);
 
+        authorRepository.save(ericSaved);
+        authorRepository.save(rodSaved);
         bookRepository.save(dddSaved);
         bookRepository.save(noEjbSaved);
 
