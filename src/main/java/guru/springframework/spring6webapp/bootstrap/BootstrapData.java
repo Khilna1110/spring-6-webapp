@@ -13,7 +13,7 @@ import guru.springframework.spring6webapp.repositories.PublisherRepository;
 @Component
 public class BootstrapData implements CommandLineRunner {
 
-    // new branch created - 5-assn-add-publisher
+    // new branch created - 6-publisher-relationship
     private final AuthorRepository authorRepository;
     private final BookRepository bookRepository;
     private final PublisherRepository publisherRepository;
@@ -63,13 +63,18 @@ public class BootstrapData implements CommandLineRunner {
         harperCollins.setState("Maharashtra");
         harperCollins.setZip("400125");
 
-        publisherRepository.save(harperCollins);
+        Publisher savedPublisher = publisherRepository.save(harperCollins);
+
+        dddSaved.setPublisher(savedPublisher);
+        noEjbSaved.setPublisher(savedPublisher);
+
+        bookRepository.save(dddSaved);
+        bookRepository.save(noEjbSaved);
 
         System.out.println("In Bootstrap");
         System.out.println("Author Count: " + authorRepository.count());
         System.out.println("Book Count: " + bookRepository.count());
         System.out.println("Publisher count: " + publisherRepository.count());
-
     }
 
 }
