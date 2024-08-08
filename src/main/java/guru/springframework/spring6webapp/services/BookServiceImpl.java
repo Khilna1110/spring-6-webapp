@@ -8,6 +8,8 @@ import guru.springframework.spring6webapp.repositories.BookRepository;
 @Service
 public class BookServiceImpl implements BookService {
 
+
+    // new branch created - 8-add-book-service
     private final BookRepository bookRepository;
 
     public BookServiceImpl(BookRepository bookRepository) {
